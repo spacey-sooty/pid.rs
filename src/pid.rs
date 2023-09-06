@@ -51,6 +51,11 @@ impl Config {
 
     /*
      *  @name from: the function to create a new pid controller instance
+     *  @param p: the p value to be assigned
+     *  @param i: the i value to be assigned
+     *  @param d: the d value to be assigned
+     *  @param izone: the izone value to be assigned
+     *  @param error: the error margin to be assigned
      */
     pub fn from(p: f32, i: f32, d: f32, izone: f32, error: f32) -> Self {
         return Config {
