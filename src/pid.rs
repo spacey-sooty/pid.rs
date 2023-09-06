@@ -1,7 +1,7 @@
 /*
  *  @name config: the module for all of the PID Controllers configuration
  */
-mod config {
+pub mod config {
   /*
    *  @name Config: the configuration struct for a PID controller
    *  @param p: the proportion value the PID loop
