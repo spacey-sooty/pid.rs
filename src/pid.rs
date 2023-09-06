@@ -84,3 +84,23 @@ pub mod config {
     }
   }
 }
+
+pub mod controller {
+    pub struct StateInfo {
+        is_active: bool,
+    }
+
+    impl StateInfo {
+        pub fn is_active(&self) -> bool { self.is_active }
+    }
+
+    impl Default for StateInfo {
+        fn default() -> Self {StateInfo{is_active: false}}
+    }
+
+    pub enum State {
+        Running(StateInfo),
+        Finished(StateInfo),
+        Err(StateInfo),
+    }
+}
