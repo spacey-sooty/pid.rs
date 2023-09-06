@@ -27,7 +27,7 @@ jobs:
     - name: Build
       run: cargo build --verbose
     - name: Test
-        run: cargo test --verbose
+      run: cargo test --verbose
 
   MacOS:
 
@@ -38,4 +38,4 @@ jobs:
     - name: Build
       run: cargo build --verbose
     - name: Test
-        run: cargo test --verbose
+      run: cargo test --verbose
