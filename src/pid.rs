@@ -91,11 +91,22 @@ pub mod controller {
     }
 
     impl StateInfo {
-        pub fn is_active(&self) -> bool { self.is_active }
+        pub fn is_active(&self) -> bool {
+            self.is_active
+        }
+
+        pub fn from() -> Self {
+            StateInfo {
+                is_active: false,
+            }
+        }    
     }
 
     impl Default for StateInfo {
-        fn default() -> Self {StateInfo{is_active: false}}
+        fn default() -> Self {
+            StateInfo{is_active: false
+            }
+        }
     }
 
     pub enum State {
@@ -103,4 +114,15 @@ pub mod controller {
         Finished(StateInfo),
         Err(StateInfo),
     }
+
+    impl Default for State {
+        fn default() -> Self {
+            let info = StateInfo {
+                is_active: false,
+            };
+            State::Err(info)
+        }
+    }
+
+    impl StateInfo {}
 }
