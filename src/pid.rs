@@ -4,6 +4,7 @@
 pub mod config {
     /*
     *  @name Config: the configuration struct for a PID controller
+    *  @param path: for network tables
     *  @param p: the proportion value the PID loop
     *  @param i: the integral value of the PID loop
     *  @param d: the derivative value of the PID loop
@@ -11,6 +12,7 @@ pub mod config {
     *  @param error: the acceptable error margin of the loop
     */
     pub struct Config {
+        path: String,
         p: f32,
         i: f32,
         d: f32,
@@ -26,7 +28,7 @@ pub mod config {
         *  @name default: the default values
         */
         fn default() -> Self {
-            Config::from(1.0, 1.0, 1.0, 1.0, 1.0)
+            Config::from(String::from("/pid"), 1.0, 1.0, 1.0, 1.0, 1.0)
         }
     }
 
@@ -64,6 +66,12 @@ pub mod config {
         pub fn get_error(&self) -> f32 {
             self.error
         }
+        /*
+        *  @name get_error: returns the error margin value
+        */       
+        pub fn get_path(&self) -> &String {
+            &self.path
+        }
 
         /*
         *  @name from: the function to create a new pid controller instance
@@ -73,8 +81,9 @@ pub mod config {
         *  @param izone: the izone value to be assigned
         *  @param error: the error margin to be assigned
         */
-        pub fn from(p: f32, i: f32, d: f32, izone: f32, error: f32) -> Self {
+        pub fn from(path: String, p: f32, i: f32, d: f32, izone: f32, error: f32) -> Self {
             Config {
+                path,
                 p,
                 i,
                 d,
