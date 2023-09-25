@@ -3,7 +3,7 @@ pub mod config {
     /// A struct which holds a PID controllers configuration information. Takes in a path, p, i and
     /// d values, izone and error margin. An instance can be created using the from method eg
     /// ```
-    /// use config::Config;
+    /// use pid::config::Config;
     /// let config = Config::from(String::from("/arm"), 1.0, 1.0, 1.0, 0.1, 0.001);
     /// ```
     pub struct Config {
