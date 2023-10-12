@@ -4,7 +4,7 @@ pub mod config {
     /// d values, izone and error margin. An instance can be created using the from method eg
     /// ```
     /// use pid::config::Config;
-    /// let config = Config::from(String::from("/arm"), 1.0, 1.0, 1.0, 0.1, 0.001);
+    /// let config = Config::from("/arm".to_string(), 1.0, 1.0, 1.0, 0.1, 0.001);
     /// ```
     pub struct Config {
         path: String,
@@ -19,7 +19,7 @@ pub mod config {
     impl Default for Config {
         /// The default values for a config struct.
         fn default() -> Self {
-            Config::from(String::from("/pid"), 1.0, 1.0, 1.0, 1.0, 1.0)
+            Config::from("/pid".to_string(), 1.0, 1.0, 1.0, 1.0, 1.0)
         }
     }
 
@@ -79,8 +79,8 @@ pub mod controller {
             self.is_active
         }
 
-        pub fn from() -> Self {
-            StateInfo { is_active: false }
+        pub fn from(is_active: bool) -> Self {
+            StateInfo { is_active }
         }
     }
 
